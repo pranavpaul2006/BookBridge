@@ -14,6 +14,9 @@ import './Navbar.css'
 
 import { Menu, MenuItem, IconButton } from '@mui/material';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
+import { useSignOut } from 'react-firebase-hooks/auth';
+import { auth } from '../firebase/firebase';
+import useLogout from '../hooks/useLogout';
 
 
 const Transition = forwardRef(function Transition(props, ref) {
@@ -65,6 +68,10 @@ const Navbar = () => {
     console.log('Logout clicked');
     handleMenuClose();
   };
+
+  const {handleLogout, isLoggingOut} = useLogout()
+
+  
 
   
   return (
@@ -159,6 +166,7 @@ const Navbar = () => {
                 <div id='logout-button' className='sm:block hidden'>
                     <button
                       className="group flex items-center justify-start w-11 h-11 bg-white rounded-full cursor-pointer relative overflow-hidden transition-all duration-200 shadow-lg hover:w-32 hover:rounded-lg active:translate-x-1 active:translate-y-1"
+                      onClick={handleLogout}
                     >
                       <div
                         className="flex items-center justify-center w-full transition-all duration-300 group-hover:justify-start group-hover:px-3"

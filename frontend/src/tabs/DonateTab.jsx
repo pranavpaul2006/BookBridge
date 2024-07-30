@@ -20,15 +20,15 @@ const DonateTab = () => {
     const {isDark} = useBackground();
     const [bookname ,setBookname] = useState("");
     const [author , setAuthor] = useState("");
-    const [desc , setDesc] = useState("");
+    const [address , setAddress] = useState("");
 
     const handleSubmit = (e)=> {
         e.preventDefault();
-        if (!bookname || !author) {
+        if (!bookname || !author || !address) {
             toast.error("Please input Required fields.")
             return
        }
-       if (bookname.length <3 || author.length<3){
+       if (bookname.length <3 || author.length<3 ||address.length<5){
             toast.error("Minium length of name and author is 3");
             return
        }
@@ -103,9 +103,9 @@ const DonateTab = () => {
                     })
                 }}/>
 
-                <TextField id="outlined-basic1" fullWidth multiline rows={4} maxRows={5} value={desc} 
-                    onChange={(e)=>{setDesc(e.target.value)}}
-                label="Describe the book(optional)" InputProps={{
+                <TextField id="outlined-basic1" fullWidth multiline rows={4} maxRows={5} value={address} 
+                    onChange={(e)=>{setAddress(e.target.value)}}
+                label="write your address" InputProps={{
                     startAdornment: (
                     <InputAdornment position="start">
                         <DescriptionIcon sx={{color:!isDark?"white":""}}/>
