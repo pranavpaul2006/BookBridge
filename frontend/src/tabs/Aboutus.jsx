@@ -56,7 +56,7 @@ const data = [
   },
   {
     name: `Pranav Paul`,
-    img: '/public/students/pranav.jpg',
+    img: '/students/pranav.jpeg',
     review: `Angamaly`
   },
   {
